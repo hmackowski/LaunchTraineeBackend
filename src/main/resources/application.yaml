@@ -1,0 +1,11 @@
+spring:
+  datasource:
+   username: launchstats
+   password: launchstats
+   url: jdbc:mysql://localhost:3306/trainee_launch_stats
+
+
+logging:
+  level:
+    root: warn
+    '[com.promineotech]': debug
