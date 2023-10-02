@@ -2,10 +2,12 @@ CREATE TABLE trainees (
     trainee_id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    trainee_title VARCHAR(50),
     hire_date DATE NOT NULL,
     expected_graduation_date DATE,
     overall_rating INT
 );
+
 
 CREATE TABLE classroom_knowledge (
     ck_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -49,6 +51,6 @@ CREATE TABLE attendance (
     attendance_id INT PRIMARY KEY AUTO_INCREMENT,
     trainee_id INT,
     date DATE NOT NULL,
-    status ENUM('Present', 'Late', 'Absent') NOT NULL,
+    status ENUM('Present', 'Late', 'Absent', 'PTO', 'Sick') NOT NULL,
     FOREIGN KEY (trainee_id) REFERENCES trainees(trainee_id)
 );

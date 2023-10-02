@@ -19,4 +19,5 @@ public class Trainee {
   private String hireDate;  
   private String expectedGraduationDate;  
   private int overallRating;
+  private String traineeTitle;
 }

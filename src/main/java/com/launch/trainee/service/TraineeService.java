@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.launch.trainee.DAO.ITraineeDAO;
 import com.launch.trainee.entity.Trainee;
+import com.launch.trainee.entity.TraineeProfile;
 
 @Service
 public class TraineeService implements ITraineeService {
@@ -16,6 +17,12 @@ public class TraineeService implements ITraineeService {
   public List<Trainee> fetchAllTrainees() {
     List<Trainee> trainees = traineeDAO.fetchAllTrainees();
     return trainees;
+  }
+
+  @Override
+  public TraineeProfile getTraineeProfile(Integer traineeId) {
+    TraineeProfile traineeProfile = traineeDAO.getTraineeProfile(traineeId);
+    return traineeProfile;
   }
 
 }
