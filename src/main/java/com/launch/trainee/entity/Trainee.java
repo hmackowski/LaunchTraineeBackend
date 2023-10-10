@@ -12,12 +12,20 @@ import lombok.Data;
 public class Trainee {
   
   @Id
-  private int traineeId;
-  
+  private int traineeId;  
   private String firstName;  
   private String lastName;  
   private String hireDate;  
   private String expectedGraduationDate;  
-  private int overallRating;
+  private Double overallRating;
   private String traineeTitle;
+  private int ckScore;
+  private int wpsScore;
+  private int disScore;
+  private int pctScore;
+  private int tmwScore;
+  private int pslScore;
+  private int comScore;
+  private int paScore;
+
 }
