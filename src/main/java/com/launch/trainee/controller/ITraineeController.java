@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.launch.trainee.entity.Trainee;
+import com.launch.trainee.entity.TraineeNotes;
 import com.launch.trainee.entity.TraineeProfile;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,39 +21,39 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @Validated
 @RequestMapping("/trainees")
 @OpenAPIDefinition(info = @Info(title = "Launch Trainee Api"),
-servers = {@Server(url = "http://localhost:8080", description = "Local Server.")})
+    servers = {@Server(url = "http://localhost:8080", description = "Local Server.")})
 public interface ITraineeController {
-  
-  
-    @Operation( summary = "", description = "Returns Trainee Info", responses = {
-    
-    @ApiResponse( 
-        responseCode = "200",
-        description = "A list of Trainees are returned",
-        content = @Content(mediaType = "application/json",
-        schema = @Schema(implementation = Trainee.class))),
-    
-    @ApiResponse( responseCode = "400", 
-        description = "The request parameters are invalid", 
-        content = @Content(mediaType = "application/json")),
-    
-    @ApiResponse( responseCode = "404", 
-        description = "No Trainees were found with the input criteria", 
-        content = @Content(mediaType = "application/json")),
-    
-    @ApiResponse( responseCode = "500", description = "An unplanned error occured.", content
-    = @Content(mediaType = "application/json")) }
-    
-    )
-   
 
 
-   @GetMapping("/fetchAllTrainees")
+  @Operation(summary = "", description = "Returns Trainee Info", responses = {
+
+      @ApiResponse(responseCode = "200", description = "A list of Trainees are returned",
+          content = @Content(mediaType = "application/json",
+              schema = @Schema(implementation = Trainee.class))),
+
+      @ApiResponse(responseCode = "400", description = "The request parameters are invalid",
+          content = @Content(mediaType = "application/json")),
+
+      @ApiResponse(responseCode = "404",
+          description = "No Trainees were found with the input criteria",
+          content = @Content(mediaType = "application/json")),
+
+      @ApiResponse(responseCode = "500", description = "An unplanned error occured.",
+          content = @Content(mediaType = "application/json"))}
+
+  )
+
+
+
+  @GetMapping("/fetchAllTrainees")
   @ResponseStatus(code = HttpStatus.OK)
-   List<Trainee> fetchAllTrainees();
+  List<Trainee> fetchAllTrainees();
 
-    @GetMapping("/{traineeId}/profile")
-    @ResponseStatus(code = HttpStatus.OK)
-    TraineeProfile getTraineeProfile(@PathVariable Integer traineeId);
+  @GetMapping("/{traineeId}/profile")
+  @ResponseStatus(code = HttpStatus.OK)
+  TraineeProfile getTraineeProfile(@PathVariable Integer traineeId);
 
+  @GetMapping("/{traineeId}/notes")
+  @ResponseStatus(code = HttpStatus.OK)
+  List<TraineeNotes> fetchAllTraineeNotesById(@PathVariable Integer traineeId);
 }

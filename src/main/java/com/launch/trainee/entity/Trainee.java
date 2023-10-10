@@ -10,13 +10,13 @@ import lombok.Data;
 @Builder
 @Table(name = "trainee")
 public class Trainee {
-  
+
   @Id
-  private int traineeId;  
-  private String firstName;  
-  private String lastName;  
-  private String hireDate;  
-  private String expectedGraduationDate;  
+  private int traineeId;
+  private String firstName;
+  private String lastName;
+  private String hireDate;
+  private String expectedGraduationDate;
   private Double overallRating;
   private String traineeTitle;
   private int ckScore;
@@ -27,5 +27,8 @@ public class Trainee {
   private int pslScore;
   private int comScore;
   private int paScore;
-
+  private int underground;
+  private int tubset;
+  private int trim;
+  private int gas;
 }
